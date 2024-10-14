@@ -123,7 +123,7 @@ const onFilesChange = async (e: any) => {
         img.src = url;
         const tags = await ExifReader.load(e.target.files[0]);
         console.log(tags);
-        let takePhotoInfo = `${tags['FocalLengthIn35mmFilm']?.description}mm ${tags['FNumber']?.description} ${tags['ExposureTime']?.description} ISO${tags['ISOSpeedRatings']?.description}`
+        let takePhotoInfo = `${tags['FocalLengthIn35mmFilm']?.description}mm ${tags['FNumber']?.description} ${tags['ExposureTime']?.description}s ISO${tags['ISOSpeedRatings']?.description}`
         myTakePhotoInfo.LensModel = tags['LensModel']?.description ?? '--'
         myTakePhotoInfo.Make = tags['Make']?.description ?? '--'
         myTakePhotoInfo.Model = tags['Model']?.description ?? '--'
@@ -190,7 +190,7 @@ const darwBorder = (canvasId?: string) => {
 
 
     // 绘制第二行文本
-    ctx.font = `300 ${fontSize - 2}px Arial`
+    ctx.font = `300 ${fontSize - 4}px Arial`
     ctx.fillStyle = textColor2.value;
 
     ctx.textAlign = 'left'
